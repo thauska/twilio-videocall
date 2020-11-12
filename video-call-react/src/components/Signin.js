@@ -1,8 +1,8 @@
 import Raect, { useState } from 'react'
 
 function Signin() {
-    const [name, setName] = useState();
-    const [room, setRoom] = useState("room");
+    const [name, setName] = useState('');
+    const [room, setRoom] = useState('room');
 
     return (
         <form>
