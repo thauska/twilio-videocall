@@ -7,7 +7,7 @@ function App() {
 
   return (
     <div className="App">
-      { !token ? <Signin /> : <div>Hello from Twilio</div>}
+      { !token ? <Signin setToken={setToken} /> : <div>Hello from Twilio</div>}
     </div>
   );
 }

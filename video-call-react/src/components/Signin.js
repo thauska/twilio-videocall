@@ -1,11 +1,23 @@
-import Raect, { useState } from 'react'
+import Raect, { useState } from 'react';
+import axios from 'axios';
 
-function Signin() {
+function Signin({setToken}) {
     const [name, setName] = useState('');
     const [room, setRoom] = useState('room');
 
+    async function handleSubmit(event) {
+        event.preventDefault();
+
+        const result = await axios.post('https://video-call-5526-dev.twil.io/video-token.js', {
+            identity: name,
+            room
+        });
+        setToken(result.data);
+        console.log('Got token with value: ', result.data);
+    }
+
     return (
-        <form>
+        <form onSubmit={handleSubmit}>
             <label htmlFor="name">
                 Name
                 <input
@@ -24,6 +36,7 @@ function Signin() {
                     onChange={e => setRoom(e.target.value)}
                 />
             </label>
+            <button type="submit">Join the chat</button>
         </form>
     )
 }
