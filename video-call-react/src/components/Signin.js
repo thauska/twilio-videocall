@@ -1,9 +1,6 @@
-import Raect, { useState } from 'react';
 import axios from 'axios';
 
-function Signin({setToken}) {
-    const [name, setName] = useState('');
-    const [room, setRoom] = useState('room');
+function Signin({setToken, setName, setRoom, name, room}) {
 
     async function handleSubmit(event) {
         event.preventDefault();
